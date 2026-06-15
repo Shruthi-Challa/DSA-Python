@@ -1,0 +1,21 @@
+class Solution(object):
+
+    def simplifyPath(self, path):
+
+        directory = path.split('/')
+        
+        stack = []
+        
+        for i in directory:
+
+            if i=='..':
+
+                if stack:
+
+                    stack.pop()
+
+            elif i not in ['.','']:
+
+                stack.append(i)
+
+        return "/"+"/".join(stack)
